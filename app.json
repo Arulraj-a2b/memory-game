@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "memory-game",
-    "slug": "memory-game",
+    "name": "MemoryGame",
+    "slug": "MemoryGame",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
