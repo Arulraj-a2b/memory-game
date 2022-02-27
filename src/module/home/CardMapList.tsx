@@ -1,4 +1,12 @@
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  Dimensions,
+} from "react-native";
+
+const { width } = Dimensions.get("window");
 
 type list = {
   id: number;
@@ -47,14 +55,22 @@ const CardMapList = ({ list, hanldeChoice, showCard, isDisabled }: Props) => {
     }
   };
   return (
-    <TouchableOpacity onPress={handleClickCard}>
-      <View style={{ position: "relative" }}>
-        <View style={styles.listStyle}>
-          <Text>{list.value}</Text>
+    <View
+      style={{
+        position: "relative",
+        width: width / 5,
+        marginBottom: 8,
+      }}
+    >
+      <TouchableOpacity onPress={handleClickCard}>
+        <View>
+          <View style={styles.listStyle}>
+            <Text>{list.value}</Text>
+          </View>
+          <View style={cardShowStyle} />
         </View>
-        <View style={cardShowStyle} />
-      </View>
-    </TouchableOpacity>
+      </TouchableOpacity>
+    </View>
   );
 };
 

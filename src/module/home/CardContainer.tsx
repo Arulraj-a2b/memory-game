@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
-import styledNative from "styled-components/native";
-import { Text, View, StyleSheet, TouchableOpacity } from "react-native";
+import {
+  Text,
+  View,
+  StyleSheet,
+  TouchableOpacity,
+} from "react-native";
 import { cardList } from "./mock";
 import CardMapList from "./CardMapList";
 
@@ -9,13 +13,6 @@ type cardList = {
   value: string;
   match: boolean;
 };
-
-const CardGrid = styledNative.View`
-display:grid;
-grid-template-columns: 1fr 1fr 1fr 1fr;
-grid-gap: 8px;
-width: fit-content;
-`;
 
 const styles = StyleSheet.create({
   flexStyle: {
@@ -31,7 +28,7 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     backgroundColor: "#05C2CF",
     borderRadius: 4,
-    width: "fit-content",
+    // width: "fit-content",
   },
   btnTextStyle: {
     color: "#fff",
@@ -63,7 +60,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     fontSize: 20,
     textAlign: "center",
-    // marginTop: 40,
+    marginTop: 40,
   },
 });
 
@@ -148,9 +145,16 @@ const CardContainer = () => {
 
       {isStart && (
         <View
-          style={{ alignItems: "center", justifyContent: "center", flex: 1 }}
+          style={{ alignContent: "center", justifyContent: "center", flex: 1 }}
         >
-          <CardGrid>
+          <View
+            style={{
+              flexDirection: "row",
+              flexWrap: "wrap",
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
             {isCard.map((list) => (
               <CardMapList
                 key={list.id}
@@ -162,7 +166,7 @@ const CardContainer = () => {
                 isDisabled={isDisabled}
               />
             ))}
-          </CardGrid>
+          </View>
 
           <View style={styles.restartBtn}>
             <TouchableOpacity style={styles.btnStyle} onPress={shuffleCard}>
